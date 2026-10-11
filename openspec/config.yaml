@@ -1,0 +1,58 @@
+schema: spec-driven
+
+context: |
+  Project: Gavin's small change-agent trial, a JavaScript addition library.
+  Stack: CommonJS JavaScript; Node.js standard-library test runner; CI Node.js 22.
+  Commands: test=npm test · typecheck=not configured · lint=not configured
+  Domain language: read GLOSSARY.md and docs/adr/ first. Use glossary terms verbatim and respect ADRs.
+  Workflow: grill → propose → spec gate → tdd per tracer-bullet slice → two-axis review → PR → archive.
+
+rules:
+  proposal:
+    - "Why: the problem from the user's perspective. What Changes: the solution from the user's perspective. Add an explicit 'Out of Scope' list."
+    - "Add an 'Assumptions' section: every decision the agent settled without asking, one line each, with the evidence it rests on (code, convention, glossary, ADR)."
+    - "No file paths or code snippets. They go stale."
+  specs:
+    - "Every requirement opens with the user story it serves: 'As a <actor>, I want <feature>, so that <benefit>'. Be exhaustive: cover every actor and edge."
+    - "Every requirement has at least one Scenario in Given/When/Then form, observable at a public seam (behaviour, not implementation)."
+  design:
+    - "Sections, in order: Implementation Decisions (modules, interfaces, schema, API contracts, no file paths) · Seams Under Test · Testing Decisions · ADRs."
+    - "Seams Under Test: prefer existing seams and the highest one possible. Fewer is better and one is ideal. For each seam, one line on what it catches and what it misses."
+    - "Testing Decisions: test external behaviour through public interfaces only. Name prior-art tests in the repo."
+    - "Prototype snippets are allowed only when they encode a decision more precisely than prose (state machine, schema, type shape)."
+  tasks:
+    - "Group tasks into tracer-bullet vertical slices. Each slice is '## N. <title>', then a 'Blocked by: none' or 'Blocked by: 1, 2' line, then a 'Delivers: <end-to-end behaviour>' line."
+    - "A slice cuts through every layer it needs (schema → logic → API → UI → tests), is demoable or verifiable on its own, and fits one fresh agent context. Put prefactoring slices first."
+    - "Inside a slice, the first task is the failing test at an agreed seam ('- [ ] N.1 RED: <behaviour>'), then the minimal implementation tasks, then '- [ ] N.x verify: <exact command>'."
+    - "Wide refactors use expand → migrate (batches sized by blast radius) → contract. Do not force them into vertical slices."
+
+# Project context (optional)
+# Add only constraints that should guide OpenSpec artifacts and workflows.
+# Include constraints an agent cannot infer by reading the code.
+# Keep general project documentation and discoverable codebase facts out.
+# Example:
+#   context: |
+#     Designs and tasks must cover Windows, macOS, and Linux
+#     Write all artifacts in Spanish
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
