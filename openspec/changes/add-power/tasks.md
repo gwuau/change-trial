@@ -10,7 +10,7 @@ Delivers: callers can calculate numeric powers for non-negative integer exponent
 - [x] 1.3 RED: add a negative-exponent error test; verify `env -u GITHUB_TOKEN -u GH_TOKEN node --test power.test.js` fails with missing expected exception.
 - [x] 1.4 Add exponent validation and the agreed RangeError; verify `env -u GITHUB_TOKEN -u GH_TOKEN node --test power.test.js` passes.
 - [x] 1.5 Add zero and -0 exponents, exponent one, negative/zero/fractional bases, fractional/non-finite/non-number invalid exponents and invalid exponent with zero base one group at a time; verify `env -u GITHUB_TOKEN -u GH_TOKEN node --test power.test.js` after each group.
-- [ ] 1.6 verify: `env -u GITHUB_TOKEN -u GH_TOKEN npm test` and `env -u GITHUB_TOKEN -u GH_TOKEN openspec validate add-power --strict`.
+- [x] 1.6 verify: `env -u GITHUB_TOKEN -u GH_TOKEN npm test` and `env -u GITHUB_TOKEN -u GH_TOKEN openspec validate add-power --strict`.
 
 ## Workflow follow-up
 
