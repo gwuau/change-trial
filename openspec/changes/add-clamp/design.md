@@ -25,3 +25,7 @@
 ## ADRs
 
 None. A small additive helper has no hard-to-reverse design decision.
+
+## Assumptions
+
+- Reversed-bound errors are asserted with property matching (`assert.throws(fn, { name: 'RangeError', message: ... })`) rather than an `instanceof RangeError` predicate. Behaviour is identical for the standard RangeError thrown, and this matches the divide, modulo and power tests.
