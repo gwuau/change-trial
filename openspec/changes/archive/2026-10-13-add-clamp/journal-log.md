@@ -1,0 +1,11 @@
+## Log
+- Gavin accepted all four shaping recommendations. NaN precedence follows accepted any-input-NaN promise. Proposal 04765a2 committed; strict validation passed, clean tree and no product/CI changes. One slice; Risk none, Hold no; auto-merge subject to tests/reviews.
+- Intake: clamp(x, lo, hi) limits x to lo..hi for change-trial users. Existing standalone CommonJS and Node standard-library tests. No product changes before exact proposal approval.
+- Round 1 recommends inclusive bounds with equal bounds allowed; RangeError("Lower bound must not exceed upper bound") for lo > hi; numeric operation with NaN propagation and infinities allowed, no additional type checks; exported clamp seam tests below/inside/above, endpoints/equal bounds, negatives and binary-exact fractions, reversed bounds and NaN/infinity behavior. Existing functions and CI unchanged, no dependencies.
+- 2026-10-13 12:18Z created
+- 2026-10-13 12:51Z inbox go-add-clamp-20261013T123508Z-ae99 started: add-clamp
+- 2026-10-13 12:51Z approved at 04765a2
+- 2026-10-13 12:53Z slice 1 green at 834133f: clamp added red-to-green at the exported seam (13 new tests); full suite 51 pass; openspec validate add-clamp --strict ok.
+- Assumptions after go: CommonJS function export and node:test follow existing modules; NaN checked before the range guard so any NaN input returns NaN even with reversed bounds; README left alone because it lists no functions; commits use -c user.name/-c user.email matching the existing committer gwuau-changeagent because the container has no git identity configured.
+- 2026-10-13 12:51Z inbox go-add-clamp-20261013T123508Z-ae99 applied: go add-clamp 04765a2
+- 2026-10-13 12:56Z review passed at ec374f2: Standards zero hard violations (five judgement-call smells, all in-repo precedent); Spec zero missing or extra behaviour. One finding fixed: design.md now records the property-matching error assertion as an Assumption. openspec validate add-clamp --strict ok, doctor ok, 4/4 artifacts complete, full suite 51 pass.
